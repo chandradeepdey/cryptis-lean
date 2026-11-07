@@ -1,0 +1,27 @@
+name = "cryptis"
+defaultTargets = ["Cryptis", "CryptisExamples"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.35.0"
+
+[[require]]
+name = "iris"
+git = "https://github.com/leanprover-community/iris-lean"
+rev = "8293092f09bd32ec60640f4267e7b7cd98bfe024"
+subDir = "Iris"
+
+[[lean_lib]]
+name = "Cryptis"
+
+# The case studies: every module under CryptisExamples/.
+[[lean_lib]]
+name = "CryptisExamples"
+globs = ["CryptisExamples.+"]
+
+[leanOptions]
+linter.missingDocs = false
+# Replaced by `linter.cryptis.heapLangFreeVars` (Cryptis/Lib/HeapLangLinter.lean), which also
+# knows Cryptis's HeapLang binding forms.
+weak.linter.heapLang.freeVars = false
